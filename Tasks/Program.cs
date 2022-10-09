@@ -80,8 +80,8 @@ internal class Program
                 tasks.task23();
                 break;
             default:
+                Console.WriteLine("");
                 break;
         }
-        tasks.task23();
     }
 }

@@ -153,7 +153,38 @@ internal class Tasks
                  32679 -> 6*/
 
     public void task13()
-    { }
+    {
+        bool two = true;
+        Console.WriteLine("Вы выбрали 13 задачу");
+        Console.WriteLine("Условие: Напишите программу, которая выводит третью цифру заданного числа");
+        Console.WriteLine("или сообщает, что третьей цифры нет.");
+        while (two)
+        {
+            try
+            {
+                Console.Write("Решение:\nВведите число: ");
+                int num = Convert.ToInt32(Console.ReadLine());
+                if (num > 99 || num < -99)
+                {
+                    num = Math.Abs(num);
+                    string textNumber = num.ToString();
+                    int lenght = textNumber.Length; //int lenght = (int)Math.Log10(num) + 1;
+                    num = num / (int)Math.Pow(10, lenght - 3) % 10;
+                    Console.WriteLine("Ответ: Третья цифра числа: " + num);
+                    two = false;
+                }
+                else
+                {
+                    Console.WriteLine("Ответ: Третьей цифры нет");
+                    two = false;
+                }
+            }
+            catch
+            {
+                Console.WriteLine("Ошибка ввода, попробуйте еще раз: ");
+            }
+        }
+    }
 
     /*Задача 14: Напишите программу, которая на вход .
 
