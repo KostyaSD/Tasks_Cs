@@ -5,7 +5,7 @@
     public void methods()
     {
         Tasks tasks = new Tasks();
-        Console.Write("Введите номер задачи от 1 до 23: ");
+        Console.Write("Введите номер задачи от 1 до 30: ");
         number = Convert.ToInt32(Console.ReadLine());
         switch (number)
         {
@@ -77,6 +77,27 @@
                 break;
             case 23:
                 tasks.task23();
+                break;
+            case 24:
+                tasks.task24();
+                break;
+            case 25:
+                tasks.task25();
+                break;
+            case 26:
+                tasks.task26();
+                break;
+            case 27:
+                tasks.task27();
+                break;
+            case 28:
+                tasks.task28();
+                break;
+            case 29:
+                tasks.task29();
+                break;
+            case 30:
+                tasks.task30();
                 break;
             default:
                 Console.WriteLine("");

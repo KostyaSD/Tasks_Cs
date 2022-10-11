@@ -174,7 +174,7 @@ internal class Tasks
         } else Console.Write($"Ответ: Нет, число не четное");
     }
 
-    /*Задача 7: Напишите программу, которая на принимает на вход трёхзначное число
+    /*Задача 7: Напишите программу, которая принимает на вход трёхзначное число
                 и на выходе показывает последнюю цифру этого числа.
 
                 456 -> 6
@@ -183,7 +183,14 @@ internal class Tasks
 
     public void task7()
     {
-        Console.Write("Задача еще не готова! ожидайте решения :D");
+        Console.WriteLine("Вы выбрали Задачу № 7\n\n" +
+                          "Условие: Напишите программу, которая принимает на вход трёхзначное число\n" +
+                          "и на выходе показывает последнюю цифру этого числа.\n");
+        Console.Write("Введите трёхзначное число: ");
+        num1 = Math.Abs(Convert.ToInt32(Console.ReadLine()));
+        string tNum = num1.ToString();
+        if (tNum.Length == 3) Console.WriteLine($"Ответ: {num1 % 10}");
+        else Console.WriteLine("Вы ввели не трёхзначное число");
     }
 
     /*Задача 8: Напишите программу, которая на вход принимает число(N),
@@ -194,7 +201,25 @@ internal class Tasks
 
     public void task8()
     {
-        Console.Write("Задача еще не готова! ожидайте решения :D");
+        Console.WriteLine("Вы выбрали Задачу № 8\n\n" +
+                          "Условие: Напишите программу, которая на вход принимает число(N),\n" +
+                          "а на выходе показывает все чётные числа от 1 до N.\n");
+        Console.Write("Введите число N: ");
+        num1 = Math.Abs(Convert.ToInt32(Console.ReadLine()));
+        if (num1 > 1)
+        {
+            Console.Write($"Ответ: Все чётные числа от 1 до {num1}: ");
+            for (int i = 1; i <= num1; i++)
+            {
+                if (i % 2 == 0 && num1 > 1)
+                {
+                    if (i == num1 || i == num1 - 1) Console.Write($"{i}.");
+                    else Console.Write($"{i}, ");
+                }
+            }
+        }
+        else if (num1 == 1) Console.WriteLine($"Ответ: Чётных чисел в промежутке от 1 до {num1}, Нет.");
+        else Console.WriteLine("Ответ: Чётных чисел нет, Вы задали число меньше 1.");
     }
 
     /*Задача 9: Здесь будет условие.
@@ -216,7 +241,14 @@ internal class Tasks
 
     public void task10()
     {
-        Console.Write("Задача еще не готова! ожидайте решения :D");
+        Console.WriteLine("Вы выбрали Задачу № 10\n\n" +
+                          "Условие: Напишите программу, которая принимает на вход трёхзначное число\n" +
+                          "и на выходе показывает вторую цифру этого числа.\n");
+        Console.Write("Введите трёхзначное число: ");
+        num1 = Math.Abs(Convert.ToInt32(Console.ReadLine()));
+        string tNum = num1.ToString();
+        if (tNum.Length == 3) Console.WriteLine($"Ответ: {num1 / 10 % 10}");
+        else Console.WriteLine("Вы ввели не трёхзначное число");
     }
 
     /*Задача 11: Здесь будет условие.
@@ -248,35 +280,21 @@ internal class Tasks
 
     public void task13()
     {
-        bool two = true;
-        Console.WriteLine("Вы выбрали 13 задачу");
-        Console.WriteLine("Условие: Напишите программу, которая выводит третью цифру заданного числа");
-        Console.WriteLine("или сообщает, что третьей цифры нет.");
-        while (two)
+        Console.WriteLine("Вы выбрали Задачу № 13\n\n" +
+                          "Условие: Напишите программу, которая выводит третью цифру заданного числа\n" +
+                          "или сообщает, что третьей цифры нет.\n");
+        Console.Write("Введите число: ");
+        num1 = Math.Abs(Convert.ToInt32(Console.ReadLine()));
+        if (num1 > 99)
         {
-            try
-            {
-                Console.Write("Решение:\nВведите число: ");
-                int num = Convert.ToInt32(Console.ReadLine());
-                if (num > 99 || num < -99)
-                {
-                    num = Math.Abs(num);
-                    string textNumber = num.ToString();
-                    int lenght = textNumber.Length; //int lenght = (int)Math.Log10(num) + 1;
-                    num = num / (int)Math.Pow(10, lenght - 3) % 10;
-                    Console.WriteLine("Ответ: Третья цифра числа: " + num);
-                    two = false;
-                }
-                else
-                {
-                    Console.WriteLine("Ответ: Третьей цифры нет");
-                    two = false;
-                }
-            }
-            catch
-            {
-                Console.WriteLine("Ошибка ввода, попробуйте еще раз: ");
-            }
+            string textNumber = num1.ToString();
+            int lenght = textNumber.Length; //int lenght = (int)Math.Log10(num) + 1;
+            num1 = num1 / (int)Math.Pow(10, lenght - 3) % 10;
+            Console.WriteLine("Ответ: Третья цифра числа: " + num1);
+        }
+        else
+        {
+            Console.WriteLine("Ответ: Третьей цифры нет");
         }
     }
 
@@ -299,7 +317,14 @@ internal class Tasks
 
     public void task15()
     {
-        Console.Write("Задача еще не готова! ожидайте решения :D");
+        Console.WriteLine("Вы выбрали Задачу № 15\n\n" +
+                          "Условие: Напишите программу, которая принимает на вход цифру,\n" +
+                          "обозначающую день недели, и проверяет, является ли этот день выходным.\n");
+        Console.Write("Введите день недели: ");
+        num1 = Math.Abs(Convert.ToInt32(Console.ReadLine()));
+        if (num1 > 0 && num1 <= 5) Console.Write("Ответ: Нет, сегодня не выходной.");
+        else if (num1 > 5 && num1 <= 7) Console.Write("Ответ: Да, сегодня выходной день.");
+        else Console.Write($"Число: {num1}, не попало в промежуток дней недели от 1 до 7.");
     }
 
     /*Задача 16: Здесь будет условие.
@@ -341,7 +366,7 @@ internal class Tasks
 
     public void task19()
     {
-        Console.Write("Вы выбрали Задачу 19.\n" +
+        Console.Write("Вы выбрали Задачу № 19.\n" +
                                       "чтобы узнать является ли число полиндромом\n" +
                                       "Введите число: ");
         num1 = Convert.ToInt32(Console.ReadLine());
@@ -350,7 +375,7 @@ internal class Tasks
         int result = 0;
         for (int i = 0; i <= lenght / 2; i++)
         {
-            if (textNumber[i] == textNumber[lenght - 1 - i])
+          /*if (textNumber[i] == textNumber[lenght - 1 - i])
             {
                 //Console.WriteLine($"цифры {textNumber[i]} и {textNumber[lenght - 1 - i]} совпали");
             }
@@ -359,10 +384,15 @@ internal class Tasks
                 //Console.WriteLine($"цифры {textNumber[i]} и {textNumber[lenght - 1 - i]} не совпали - число не полиндром");
                 result = 1;
                 break;
+            }*/
+            if (textNumber[i] != textNumber[lenght - 1 - i])
+            {
+                result = 1;
+                break;
             }
         }
-        if (result == 0) Console.WriteLine("Число полиндром");
-        else Console.WriteLine("Число не полиндром");
+        if (result == 0) Console.WriteLine("Ответ: Число полиндром");
+        else Console.WriteLine("Ответ: Число не полиндром");
         return;
     }
 
@@ -384,10 +414,10 @@ internal class Tasks
 
     public void task21()
     {
-        Console.WriteLine("Вы выбрали Задачу 21.\n" +
-                                      "для определения расстояния между двумя точками\n" +
-                                      "введите координаты точки" +
-                                      " A (x1,y1,z1) и B(x2, y2, z2).");
+        
+        Console.WriteLine("Вы выбрали Задачу № 21.\n\n" +
+                          "для определения расстояния между двумя точками\n" +
+                          "введите координаты точки A (x1,y1,z1) и B(x2, y2, z2).");
         Console.Write("Введите координату x1: ");
         int x1 = Convert.ToInt32(Console.ReadLine());
         Console.Write("Введите координату y1: ");
@@ -441,4 +471,118 @@ internal class Tasks
         }
         else Console.WriteLine($"Число {num1} не попало в интервал от 1");
     }
+
+    /*Задача 24: Напишите программу, которая принимает на вход число (А)
+                   и выдаёт сумму чисел от 1 до А.
+                7 -> 28
+                4 -> 10
+                8 -> 36*/
+
+    public void task24() //надо проветить больше условий ввода
+    {
+        Console.WriteLine("Вы выбрали Задачу № 24\n\n" +
+                          "Условие: Напишите программу, которая принимает на вход число (А)\n" +
+                          "и выдаёт сумму чисел от 1 до А.\n");
+        Console.Write("Введите число А: ");
+        num1 = Math.Abs(Convert.ToInt32(Console.ReadLine()));
+        int sum = 0;
+        for(int i = 1; i <= num1; i++)
+        {
+            sum += i;
+        }
+        Console.Write($"Ответ: Сумма чисел от 1 до {num1} = {sum}");
+    }
+
+   /* Задача 25: Напишите цикл, который принимает на вход два числа (A и B)
+                 и возводит число A в натуральную степень B.
+
+                 3, 5 -> 243 (3⁵)
+                 2, 4 -> 16*/
+
+    public void task25()
+    {
+        Console.Write("Задача еще не готова! ожидайте решения :D");
+    }
+
+    /*Задача 26: Напишите программу, которая принимает на вход число и выдаёт
+                    количество цифр в числе.
+                456 -> 3
+                78 -> 2
+                89126 -> 5*/
+
+    public void task26() //требует тестов
+    {
+        Console.WriteLine("Вы выбрали Задачу № 26\n\n" +
+                          "Условие: Напишите программу, которая принимает на вход число и выдаёт\n" +
+                          "количество цифр в числе\n");
+        Console.Write("Введите число: ");
+        num1 = Convert.ToInt32(Console.ReadLine());
+        string tNum = num1.ToString();
+        Console.Write($"Количество цифр в числе: {tNum.Length}");
+
+    }
+
+    /*Задача 27: Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.
+
+                 452 -> 11
+                 82 -> 10
+                 9012 -> 12*/
+
+    public void task27()
+    {
+        Console.Write("Задача еще не готова! ожидайте решения :D");
+    }
+
+    /*Задача 28: Напишите программу, которая принимает на вход число N и выдает
+                произведение чисел от 1 до N.
+
+                4 -> 24
+                5 -> 120*/
+
+    public void task28() //надо потестить
+    {
+        Console.WriteLine("Вы выбрали Задачу № 28\n\n" +
+                          "Условие: Напишите программу, которая принимает на вход число N\n" +
+                          "и выдает произведение чисел от 1 до N.\n");
+        Console.Write("Введите число N: ");
+        num1 = Convert.ToInt32(Console.ReadLine());
+        int count = 1;
+        for(int i = 1; i <= num1; i++)
+        {
+            count *= i;
+        }
+        Console.Write($"Произведение чисел от 1 до {num1} = {count}");
+    }
+
+    /*Задача 29: Напишите программу, которая задаёт массив произвольной длины, заполняет
+                 произвольными элементами и выводит их на экран. Длину массива и элементы
+                 массива можно задать рандомно или попросить пользователя ввести в консоли.
+
+                 1, 2, 5, 7, 19 -> [1, 2, 5, 7, 19]
+                 6, 1, 33 -> [6, 1, 33]*/
+
+    public void task29()
+    {
+        Console.Write("Задача еще не готова! ожидайте решения :D");
+    }
+
+    /*Задача 30: Напишите программу, которая выводит массив из 8 элементов,
+                 заполняющий нулями и единицами в случайном порядке.
+
+                {1,0,1,1,0,1,0,0}*/
+
+    public void task30()
+    {
+        Console.WriteLine("Вы выбрали Задачу № 30\n\n" +
+                          "Условие: Напишите программу, которая выводит массив из 8 элементов,\n" +
+                          "заполняющий нулями и единицами в случайном порядке.\n");
+        int[] arr = new int[8];
+        for (int i = 0; i < arr.Length; i++)
+        {
+            arr[i] = new Random().Next(0, 2);
+            if (i == arr.Length - 1) Console.Write($"{arr[i]}. ");
+            else Console.Write($"{arr[i]}, ");
+        }
+    }
 }
+
