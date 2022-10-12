@@ -57,7 +57,7 @@ internal class Tasks
     }
 
     /*Задача 3: Напишите программу, которая будет выдавать название
-                дня недели по заданномуномеру.
+                дня недели по заданному номеру.
 
                 3 -> max = Среда
                 5 -> max = Пятница*/
@@ -223,7 +223,7 @@ internal class Tasks
         else Console.WriteLine("Ответ: Чётных чисел нет, Вы задали число меньше 1.");
     }
 
-    /*Задача 9: Напишите программу, которая выводт случайное число
+    /*Задача 9: Напишите программу, которая выводит случайное число
                 из отрезка [10, 99] и показывает наибольшую цифру числа.
 
                 78 -> 8
@@ -484,14 +484,29 @@ internal class Tasks
         return;
     }
 
-    /*Задача 20: Здесь будет условие.
+    /*Задача 20: Напишите программу, которая принимает на вход координаты двух точек
+                 и находит расстояние между ними в 2D пространстве.
 
-                 5 -> 2, 4
-                 8 -> 2, 4, 6, 8*/
+                 A (3,6); B (2,1), -> 5.09
+                 A (7,-5); B (1,-1) -> 7.21*/
 
     public void task20()
     {
-        Console.Write("Задача еще не готова! ожидайте решения :D");
+        Console.WriteLine("Вы выбрали Задачу № 20\n\n" +
+                          "Условие: Напишите программу, которая принимает на вход координаты двух точек\n" +
+                          "и находит расстояние между ними в 2D пространстве.\n");
+        Console.Write("Введите координату x1: ");
+        int x1 = Convert.ToInt32(Console.ReadLine());
+        Console.Write("Введите координату y1: ");
+        int y1 = Convert.ToInt32(Console.ReadLine());
+        Console.Write("Введите координату x2: ");
+        int x2 = Convert.ToInt32(Console.ReadLine());
+        Console.Write("Введите координату y2: ");
+        int y2 = Convert.ToInt32(Console.ReadLine());
+        double d = Math.Pow((Math.Pow(x2 - x1, 2) +
+                             Math.Pow(y2 - y1, 2)), 0.5);
+        d = Math.Round(d, 2);
+        Console.WriteLine("Ответ: Расстояние между точками в 2D пространстве = " + d);
     }
 
     /*Задача 21: Напишите программу, которая принимает на вход координаты двух точек 
@@ -604,7 +619,22 @@ internal class Tasks
 
     public void task25()
     {
-        Console.Write("Задача еще не готова! ожидайте решения :D");
+        Console.WriteLine("Вы выбрали Задачу № 25\n\n" +
+                                  "Условие: Напишите цикл, который принимает на вход два числа (A и B)\n" +
+                                  "и возводит число A в натуральную степень B.\n");
+        Console.Write("Введите число А: ");
+        num1 = Convert.ToInt32(Console.ReadLine());
+        Console.Write("Введите число В: ");
+        num2 = Convert.ToInt32(Console.ReadLine());
+        //1 вариант решения:
+        Console.WriteLine($"Ответ: {Math.Pow(num1, num2)}");
+        //2 вариант решения:
+        /*int count = num1; 
+        for(int i = 1; i < num2; i++)
+        {
+            count *= num1;
+        }
+        Console.WriteLine($"Ответ: {count}");*/
     }
 
     /*Задача 26: Напишите программу, которая принимает на вход число и выдаёт
@@ -633,7 +663,27 @@ internal class Tasks
 
     public void task27()
     {
-        Console.Write("Задача еще не готова! ожидайте решения :D");
+        Console.WriteLine("Вы выбрали Задачу № 27\n\n" +
+                                          "Условие: Напишите программу, которая принимает на вход число" +
+                                          "и выдаёт сумму цифр в числе.\n");
+        Console.Write("Введите число: ");
+        num1 = Convert.ToInt32(Console.ReadLine());
+        int count = 0;
+        // 1 вариант решения: 
+        while (num1 != 0)
+        {
+            count += num1 % 10;
+            num1 /= 10;
+        }
+        Console.WriteLine($"Ответ: {count}");
+        // 2 вариант решения:
+/*        int lenght = num1.ToString().Length;
+        char[] text = num1.ToString().ToCharArray();
+        for (int i = 0; i < lenght; i++)
+        {
+            count += Convert.ToInt32(text[i].ToString());
+        }
+        Console.Write($"Ответ: {count}");*/
     }
 
     /*Задача 28: Напишите программу, которая принимает на вход число N и выдает
@@ -668,7 +718,67 @@ internal class Tasks
 
     public void task29()
     {
-        Console.Write("Задача еще не готова! ожидайте решения :D");
+        Console.WriteLine("Вы выбрали Задачу № 29\n\n" +
+                          "Условие: Напишите программу, которая задаёт массив произвольной длины, заполняет\n" +
+                          "произвольными элементами и выводит их на экран. Длину массива и элементы\n" +
+                          "массива можно задать рандомно или попросить пользователя ввести в консоли.\n");
+        Console.Write("Выберите действие:\n" +
+                      "1. Задать длину массива вручную\n" +
+                      "2. Задать длину массива автоматически\n" +
+                      "Ваш выбор: ");
+        num1 = Convert.ToInt32(Console.ReadLine());
+        int[] arr = new int[0];
+        switch (num1)
+        {
+            case 1:
+                Console.Write("Введите длину массива: ");
+                num1 = Math.Abs(Convert.ToInt32(Console.ReadLine()));
+                Array.Resize(ref arr, num1);
+                Console.WriteLine($"Длина массива: {arr.Length}");
+                break;
+            case 2:
+                Array.Resize(ref arr, new Random().Next(4, 21));
+                Console.WriteLine($"Длина массива: {arr.Length}");
+                break;
+            default:
+                Console.Write("Что-то пошло не так! надо было выбрать 1 либо 2\n" +
+                              "Миссия провалена!");
+                break;
+        }
+        Console.Write("Выберите действие:\n" +
+                      "1. Заполнить массив вручную\n" +
+                      "2. Заполнить массив автоматически\n" +
+                      "Ваш выбор: ");
+        num1 = Convert.ToInt32(Console.ReadLine());
+        switch (num1)
+        {
+            case 1:
+                for (int i = 0; i < arr.Length; i++)
+                {
+                    Console.Write($"Введите эллемент {i}: ");
+                    arr[i] = Convert.ToInt32(Console.ReadLine());
+                }
+                Console.Write("Ответ: Массив {");
+                for (int i = 0; i < arr.Length; i++)
+                {
+                    if (i == arr.Length - 1) Console.Write(arr[i] + "}");
+                    else Console.Write($"{arr[i]}, ");
+                }
+                break;
+            case 2:
+                Console.Write("Ответ: Массив {");
+                for (int i = 0; i < arr.Length; i++)
+                {
+                    arr[i] = new Random().Next(0, 200);
+                    if (i == arr.Length - 1) Console.Write(arr[i] + "}");
+                    else Console.Write($"{arr[i]}, ");
+                }
+                break;
+            default:
+                Console.Write("Что-то пошло не так! надо было выбрать 1 либо 2\n" +
+                              "Миссия провалена!");
+                break;
+        }
     }
 
     /*Задача 30: Напишите программу, которая выводит массив из 8 элементов,
