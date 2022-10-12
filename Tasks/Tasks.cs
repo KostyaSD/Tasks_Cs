@@ -578,19 +578,22 @@ internal class Tasks
                  4 -> 10
                  8 -> 36*/
 
-    public void task24() //надо сделать больше тестов
+    public void task24()
     {
         Console.WriteLine("Вы выбрали Задачу № 24\n\n" +
                           "Условие: Напишите программу, которая принимает на вход число (А)\n" +
                           "и выдаёт сумму чисел от 1 до А.\n");
         Console.Write("Введите число А: ");
-        num1 = Math.Abs(Convert.ToInt32(Console.ReadLine()));
+        num1 = Convert.ToInt32(Console.ReadLine());
         int sum = 0;
-        for(int i = 1; i <= num1; i++)
+        if (num1 > 1)
         {
-            sum += i;
-        }
-        Console.Write($"Ответ: Сумма чисел от 1 до {num1} = {sum}");
+            for (int i = 1; i <= num1; i++)
+            {
+                sum += i;
+            }
+            Console.Write($"Ответ: Сумма чисел от 1 до {num1} = {sum}");
+        } else Console.Write("Ответ: Прочитайте внимательно условие \"от 1\", это значит первая цифра 2!");
     }
 
    /* Задача 25: Напишите цикл, который принимает на вход два числа (A и B)
@@ -611,16 +614,15 @@ internal class Tasks
                  78 -> 2
                  89126 -> 5*/
 
-    public void task26() //надо сделать больше тестов
+    public void task26()
     {
         Console.WriteLine("Вы выбрали Задачу № 26\n\n" +
                           "Условие: Напишите программу, которая принимает на вход число и выдаёт\n" +
-                          "количество цифр в числе\n");
+                          "количество цифр в числе.\n");
         Console.Write("Введите число: ");
-        num1 = Convert.ToInt32(Console.ReadLine());
+        num1 = Math.Abs(Convert.ToInt32(Console.ReadLine()));
         string tNum = num1.ToString();
-        Console.Write($"Количество цифр в числе: {tNum.Length}");
-
+        Console.Write($"Ответ: Количество цифр в числе: {tNum.Length}");
     }
 
     /*Задача 27: Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.
@@ -640,7 +642,7 @@ internal class Tasks
                  4 -> 24
                  5 -> 120*/
 
-    public void task28() //надо сделать больше тестов
+    public void task28()
     {
         Console.WriteLine("Вы выбрали Задачу № 28\n\n" +
                           "Условие: Напишите программу, которая принимает на вход число N\n" +
@@ -648,11 +650,13 @@ internal class Tasks
         Console.Write("Введите число N: ");
         num1 = Convert.ToInt32(Console.ReadLine());
         int count = 1;
-        for(int i = 1; i <= num1; i++)
-        {
-            count *= i;
-        }
-        Console.Write($"Произведение чисел от 1 до {num1} = {count}");
+        if(num1 > 1) { 
+            for(int i = 1; i <= num1; i++)
+            {
+                count *= i;
+            }
+            Console.Write($"Ответ: Произведение чисел от 1 до {num1} = {count}");
+        } else Console.Write("Ответ: Прочитайте внимательно условие \"от 1\", это значит первая цифра 2!");
     }
 
     /*Задача 29: Напишите программу, которая задаёт массив произвольной длины, заполняет
@@ -672,16 +676,17 @@ internal class Tasks
 
                  {1,0,1,1,0,1,0,0}*/
 
-    public void task30() //надо сделать больше тестов
+    public void task30()
     {
         Console.WriteLine("Вы выбрали Задачу № 30\n\n" +
                           "Условие: Напишите программу, которая выводит массив из 8 элементов,\n" +
                           "заполняющий нулями и единицами в случайном порядке.\n");
         int[] arr = new int[8];
+        Console.Write("Ответ: {");
         for (int i = 0; i < arr.Length; i++)
         {
             arr[i] = new Random().Next(0, 2);
-            if (i == arr.Length - 1) Console.Write($"{arr[i]}. ");
+            if (i == arr.Length - 1) Console.Write(arr[i] + "}");
             else Console.Write($"{arr[i]}, ");
         }
     }
